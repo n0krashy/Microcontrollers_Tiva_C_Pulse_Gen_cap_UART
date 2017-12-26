@@ -1,16 +1,16 @@
 // UART.c
-// Runs on LM4F120, TM4C123
+// Runs on LM3S811, LM3S1968, LM3S8962, LM4F120, TM4C123
 // Simple device driver for the UART.
 // Daniel Valvano
-// May 23, 2014
+// May 30, 2014
+// Modified by EE345L students Charlie Gough && Matt Hawk
+// Modified by EE345M students Agustinus Darmawan && Mingjie Qiu
 
-/* This example accompanies the books
-  "Embedded Systems: Introduction to ARM Cortex M Microcontrollers",
-  ISBN: 978-1469998749, Jonathan Valvano, copyright (c) 2014
-
-"Embedded Systems: Real Time Interfacing to ARM Cortex M Microcontrollers",
+/* This example accompanies the book
+   "Embedded Systems: Real Time Interfacing to Arm Cortex M Microcontrollers",
    ISBN: 978-1463590154, Jonathan Valvano, copyright (c) 2014
- 
+   Program 4.12, Section 4.9.4, Figures 4.26 and 4.40
+
  Copyright 2014 by Jonathan W. Valvano, valvano@mail.utexas.edu
     You may use, edit, run or distribute this file
     as long as the above copyright notice remains
@@ -25,10 +25,9 @@
 
 // U0Rx (VCP receive) connected to PA0
 // U0Tx (VCP transmit) connected to PA1
-
-#include "UART.h"
 #include <stdint.h>
-#include "tm4c123gh6pm.h"
+#include "UART.h"
+#include "inc/tm4c123gh6pm.h"
 
 
 #define UART_FR_TXFF            0x00000020  // UART Transmit FIFO Full
@@ -36,21 +35,20 @@
 #define UART_LCRH_WLEN_8        0x00000060  // 8 bit word length
 #define UART_LCRH_FEN           0x00000010  // UART Enable FIFOs
 #define UART_CTL_UARTEN         0x00000001  // UART Enable
-#define SYSCTL_RCGC1_UART0      0x00000001  // UART0 Clock Gating Control
-#define SYSCTL_RCGC2_GPIOA      0x00000001  // port A Clock Gating Control
+
 
 //------------UART_Init------------
-// Initialize the UART for 115,200 baud rate (assuming 16 MHz bus clock),
+// Initialize the UART for 115,200 baud rate (assuming 50 MHz UART clock),
 // 8 bit word length, no parity bits, one stop bit, FIFOs enabled
 // Input: none
 // Output: none
 void UART_Init(void){
-  SYSCTL_RCGCUART_R |= 0x01; // activate UART0
-  SYSCTL_RCGCGPIO_R |= 0x01; // activate port A
-  while((SYSCTL_PRGPIO_R&0x0001) == 0){};// ready?
+  SYSCTL_RCGCUART_R |= 0x01;            // activate UART0
+  SYSCTL_RCGCGPIO_R |= 0x01;            // activate port A
+  while((SYSCTL_PRGPIO_R&0x01) == 0){};
   UART0_CTL_R &= ~UART_CTL_UARTEN;      // disable UART
-	UART0_IBRD_R = 104;                    
-  UART0_FBRD_R = 11;                   // FBRD = round(0.5104 * 64 ) = 33
+  UART0_IBRD_R = 104;                    // IBRD = int(50,000,000 / (16 * 115,200)) = int(27.1267)
+  UART0_FBRD_R = 11;                     // FBRD = int(0.1267 * 64 + 0.5) = 8
                                         // 8 bit word length (no parity bits, one stop bit, FIFOs)
   UART0_LCRH_R = (UART_LCRH_WLEN_8|UART_LCRH_FEN);
   UART0_CTL_R |= UART_CTL_UARTEN;       // enable UART
@@ -77,6 +75,7 @@ void UART_OutChar(char data){
   while((UART0_FR_R&UART_FR_TXFF) != 0);
   UART0_DR_R = data;
 }
+
 
 //------------UART_OutString------------
 // Output String (NULL termination)
@@ -234,4 +233,3 @@ char character;
   }
   *bufPt = 0;
 }
-
