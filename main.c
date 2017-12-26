@@ -23,11 +23,13 @@ int main(void) {
 	Timer0Capture_init();
 	PortB_Init_Send();
   while(1){
-	UART_OutString("Enter frequency in Hz");
+		UART_OutString("Enter frequency in Hz: ");
 	cycles = UART_InUDec();
-	PWM_Init(1/cycles);
+				UART_OutString("\n\r");
+	PWM_Init(cycles-1);
 	freq = Timer0A_periodCapture();
 	UART_OutString("Read frequency: ");
-	UART_OutUDec(1/freq);
+	UART_OutUDec(freq);
+	UART_OutString("\n\r");
   }
 }

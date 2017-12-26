@@ -1,5 +1,10 @@
 #include "tm4c123gh6pm.h"
 #include "timer_capture_init.h"
+#include <stdio.h>  // Diamond braces for sys lib: Standard I/O
+#include <stdint.h> // C99 variable types
+#include "UART.h"
+#include "timer_capture_init.h"
+#include "pwm.h"
 void Timer0Capture_init(void)
 {
     SYSCTL_RCGCTIMER_R |= 1;     /* enable clock to Timer Block 0 */
@@ -31,6 +36,6 @@ int Timer0A_periodCapture(void)
     TIMER0_ICR_R = 4;            /* clear timer0A capture flag */
     while((TIMER0_RIS_R & 4) == 0) ;    /* wait till captured */
     thisEdge = TIMER0_TAR_R;     /* save the timestamp */
-    
+
     return (thisEdge - lastEdge) & 0x0000FFFF; /* return the time difference */
 }
