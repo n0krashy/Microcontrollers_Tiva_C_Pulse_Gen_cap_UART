@@ -1,13 +1,13 @@
 Dependencies for Project 'scanf', Target 'scanf': (DO NOT MODIFY !)
 F (.\startup.s)(0x5A4288A3)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I E:\Keil\ARM\RV31\INC-I E:\Keil\ARM\CMSIS\Include-I E:\Keil\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\UART.c)(0x5A428EDF)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I E:\Keil\ARM\RV31\INC-I E:\Keil\ARM\CMSIS\Include-I E:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
-I (UART.h)(0x5A429083)
+F (.\UART.c)(0x5A429AD1)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I E:\Keil\ARM\RV31\INC-I E:\Keil\ARM\CMSIS\Include-I E:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
 I (E:\Keil\ARM\ARMCC\include\stdint.h)(0x51C819B4)
+I (UART.h)(0x5A4299D0)
 I (tm4c123gh6pm.h)(0x5A4288A3)
 F (.\main.c)(0x5A429534)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I E:\Keil\ARM\RV31\INC-I E:\Keil\ARM\CMSIS\Include-I E:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\main.o --omf_browse .\main.crf --depend .\main.d)
 I (E:\Keil\ARM\ARMCC\include\stdio.h)(0x51C819B4)
 I (E:\Keil\ARM\ARMCC\include\stdint.h)(0x51C819B4)
-I (UART.h)(0x5A429083)
+I (UART.h)(0x5A4299D0)
 I (timer_capture_init.h)(0x5A3142F8)
 I (tm4c123gh6pm.h)(0x5A4288A3)
 I (pwm.h)(0x5A429541)
