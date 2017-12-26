@@ -1,1 +1,1 @@
-.\startup.o: ..\systick_mostafa\startup.s
+.\startup.o: startup.s

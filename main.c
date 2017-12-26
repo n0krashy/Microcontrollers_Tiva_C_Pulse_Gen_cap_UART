@@ -1,23 +1,27 @@
-#include "timer_capture_init.h"
-#include <stdint.h>
-#include "tm4c123gh6pm.h"
-#include "systick_init_header.h"
+//**** 0. Documentation Section
+//  This program calculates the area of square shaped rooms
+//  Author: Ramesh Yerraballi & Jon Valvano
+//  Date: 5/24/2014
+//
+// 1. Pre-processor Directives Section
+#include <stdio.h>  // Diamond braces for sys lib: Standard I/O
+#include <stdint.h> // C99 variable types
+void Output_Init(void);
 
-int main(void){ 
-	int period_time;
-	SYSCTL_RCGCGPIO_R |= 0x20;  // activate port F
-  GPIO_PORTF_DIR_R |= 0x0E;   // make PF1, 2 and 3 out
-  GPIO_PORTF_AFSEL_R &= ~0x0E;// disable alt funct on PF1, 2 and 3
-  GPIO_PORTF_DEN_R |= 0x0E;   // enable digital I/O on PF1,2 and 3
-  GPIO_PORTF_AMSEL_R = 0;     // disable analog functionality on PF  
-	SysTick_Init();             // initialize SysTick timer
-	Timer0Capture_init();
-	while(1)
-	{
-		period_time = Timer0A_periodCapture();
-		GPIO_PORTF_DATA_R = GPIO_PORTF_DATA_R^0x0E; // toggle PF
-    SysTick_Wait(period_time/2);
-		GPIO_PORTF_DATA_R = GPIO_PORTF_DATA_R^0x0E; // toggle PF
-    SysTick_Wait(period_time/2);		
-	}
+// 2. Global Declarations section
+int32_t side; // room wall meters
+int32_t area; // size squared meters
+// Function Prototypes
+
+// 3. Subroutines Section
+// MAIN: Mandatory routine for a C program to be executable
+int main(void) {
+  Output_Init();              // initialize output device
+  printf("This program calculates areas of square-shaped rooms\n");
+  while(1){
+    printf("Give room side:");  // 1) ask for input
+    scanf("%ld", &side);        // 2) wait for input
+    area = side*side;           // 3) calculation
+    printf("\nside = %ld m, area = %ld sqr m\n", side, area); // 4) out
+  }
 }

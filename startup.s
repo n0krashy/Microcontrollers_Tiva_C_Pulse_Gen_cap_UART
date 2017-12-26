@@ -252,7 +252,7 @@ __Vectors
         EXPORT  Reset_Handler
 Reset_Handler
         ;
-        ; DO NOT Enable the floating-point unit.  This must be done here to handle the
+        ; DO NOT enable the floating-point unit.  This must be done here to handle the
         ; case where main() uses floating-point and the function prologue saves
         ; floating-point registers (which will fault if floating-point is not
         ; enabled).  Any configuration of the floating-point unit using
@@ -273,8 +273,8 @@ Reset_Handler
         ; the .data section initializers from flash to SRAM and zero fill the
         ; .bss section.
         ;
-        IMPORT  main
-        B       main
+        IMPORT  __main
+        B       __main
 
 ;******************************************************************************
 ;
