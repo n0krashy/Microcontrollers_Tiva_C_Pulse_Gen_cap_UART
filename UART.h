@@ -39,6 +39,8 @@
 // 8 bit word length, no parity bits, one stop bit, FIFOs enabled
 // Input: none
 // Output: none
-void Output_Init(void);
-
-
+#include <stdint.h>
+void UART_Init(void);
+uint32_t UART_InUDec(void);
+void UART_OutUDec(uint32_t n);
+void UART_OutString(char *pt);

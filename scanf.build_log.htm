@@ -3,23 +3,59 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\Nokrashy\Downloads\Compressed\Microcontrollers_Tiva_C_Pulse_Gen_cap_UART\scanf.uvproj
+C:\Users\Islam\Desktop\Microcontrollers_Tiva_C_Pulse_Gen_cap_UART\scanf.uvproj
 Project File Date:  12/26/2017
 
 <h2>Output:</h2>
-Build target 'scanf'
+Rebuild target 'scanf'
 assembling startup.s...
 compiling UART.c...
 compiling main.c...
 compiling pwm.c...
-pwm.c(30): warning:  #1-D: last line of file ends without a newline
-  }
-pwm.c: 1 warning, 0 errors
+compiling timer_capture_init.c...
 linking...
-.\scanf.axf: Error: L6200E: Symbol __ARM_use_no_argv multiply defined (by pwm.o and main.o).
-.\scanf.axf: Error: L6200E: Symbol main multiply defined (by pwm.o and main.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 2 error messages.
-".\scanf.axf" - 2 Error(s), 1 Warning(s).
+Program Size: Code=1568 RO-data=16 RW-data=0 ZI-data=1024  
+".\scanf.axf" - 0 Error(s), 0 Warning(s).
+</pre>
+</body>
+</html>
+Program Size: Code=1568 RO-data=16 RW-data=0 ZI-data=1024  
+".\scanf.axf" - 0 Error(s), 1 Warning(s).
+
+timer_capture_init.c(6): error:  #20: identifier "uint32_t" is undefined
+      SYSCTL_RCGCGPIO_R |= 2;      /* enable clock to PORTB */
+timer_capture_init.c(8): error:  #20: identifier "uint32_t" is undefined
+      GPIO_PORTB_DIR_R &= ~0x40;        /* make PB6 an input pin */
+timer_capture_init.c(9): error:  #20: identifier "uint32_t" is undefined
+      GPIO_PORTB_DEN_R |= 0x40;         /* make PB6 as digital pin */
+timer_capture_init.c(10): error:  #20: identifier "uint32_t" is undefined
+      GPIO_PORTB_AFSEL_R |= 0x40;       /* use PB6 alternate function */
+timer_capture_init.c(11): error:  #20: identifier "uint32_t" is undefined
+      GPIO_PORTB_PCTL_R &= ~0x0F000000;  /* configure PB6 for T0CCP0 */
+timer_capture_init.c(12): error:  #20: identifier "uint32_t" is undefined
+      GPIO_PORTB_PCTL_R |= 0x07000000;
+timer_capture_init.c(14): error:  #20: identifier "uint32_t" is undefined
+      TIMER0_CTL_R &= ~1;          /* disable timer0A during setup */
+timer_capture_init.c(15): error:  #20: identifier "uint32_t" is undefined
+      TIMER0_CFG_R = 4;            /* 16-bit timer mode */
+timer_capture_init.c(16): error:  #20: identifier "uint32_t" is undefined
+      TIMER0_TAMR_R = 0x17;        /* up-count, edge-time, capture mode */
+timer_capture_init.c(17): error:  #20: identifier "uint32_t" is undefined
+      TIMER0_CTL_R &= ~0x0C;        /* capture the rising edge */
+timer_capture_init.c(18): error:  #20: identifier "uint32_t" is undefined
+      TIMER0_CTL_R |= 1;           /* enable timer0A */
+timer_capture_init.c(26): error:  #20: identifier "uint32_t" is undefined
+      TIMER0_ICR_R = 4;            /* clear timer0A capture flag */
+timer_capture_init.c(27): error:  #20: identifier "uint32_t" is undefined
+      while((TIMER0_RIS_R & 4) == 0) ;    /* wait till captured */
+timer_capture_init.c(28): error:  #20: identifier "uint32_t" is undefined
+      lastEdge = TIMER0_TAR_R;     /* save the timestamp */
+timer_capture_init.c(31): error:  #20: identifier "uint32_t" is undefined
+      TIMER0_ICR_R = 4;            /* clear timer0A capture flag */
+timer_capture_init.c(32): error:  #20: identifier "uint32_t" is undefined
+      while((TIMER0_RIS_R & 4) == 0) ;    /* wait till captured */
+timer_capture_init.c(33): error:  #20: identifier "uint32_t" is undefined
+      thisEdge = TIMER0_TAR_R;     /* save the timestamp */
+timer_capture_init.c: 0 warnings, 18 errors
+".\scanf.axf" - 18 Error(s), 1 Warning(s).
 Target not created

@@ -6,7 +6,9 @@
 // 1. Pre-processor Directives Section
 #include <stdio.h>  // Diamond braces for sys lib: Standard I/O
 #include <stdint.h> // C99 variable types
-void Output_Init(void);
+#include "UART.h"
+#include "timer_capture_init.h"
+#include "pwm.h"
 
 // 2. Global Declarations section
 int32_t side; // room wall meters
@@ -16,12 +18,16 @@ int32_t area; // size squared meters
 // 3. Subroutines Section
 // MAIN: Mandatory routine for a C program to be executable
 int main(void) {
-  Output_Init();              // initialize output device
-  printf("This program calculates areas of square-shaped rooms\n");
+	int cycles,freq;
+  UART_Init();
+	Timer0Capture_init();
+	PortB_Init_Send();
   while(1){
-    printf("Give room side:");  // 1) ask for input
-    scanf("%ld", &side);        // 2) wait for input
-    area = side*side;           // 3) calculation
-    printf("\nside = %ld m, area = %ld sqr m\n", side, area); // 4) out
+	UART_OutString("Enter frequency in Hz");
+	cycles = UART_InUDec();
+	PWM_Init(1/cycles);
+	freq = Timer0A_periodCapture();
+	UART_OutString("Read frequency: ");
+	UART_OutUDec(1/freq);
   }
 }
