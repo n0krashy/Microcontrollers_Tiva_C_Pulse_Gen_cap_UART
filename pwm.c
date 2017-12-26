@@ -4,7 +4,7 @@
 
 
 void PortB_Init_Send(void){
-		SYSCTL_RCGCTIMER_R |= 1;     /* enable clock to Timer Block 0 */
+		SYSCTL_RCGCTIMER_R |= 2;     /* enable clock to Timer Block 1 */
     SYSCTL_RCGCGPIO_R |= 2;      /* enable clock to PORTB */
     GPIO_PORTB_DIR_R |= 0x10;        /* make PB4 an output pin */
     GPIO_PORTB_DEN_R |= 0x10;         /* make PB4 as digital pin */
