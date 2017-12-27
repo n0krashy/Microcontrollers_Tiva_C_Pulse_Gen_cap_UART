@@ -47,11 +47,10 @@ Removing Unused input sections from the image.
     Removing uart.o(i.UART_InUHex), (104 bytes).
     Removing uart.o(i.UART_OutUDec), (42 bytes).
     Removing uart.o(i.UART_OutUHex), (52 bytes).
-    Removing main.o(.data), (8 bytes).
     Removing timer_capture_init.o(i.Timer0A_periodCapture), (56 bytes).
     Removing timer_capture_init.o(i.Timer0Capture_init), (148 bytes).
 
-9 unused section(s) (total 504 bytes) removed from the image.
+8 unused section(s) (total 496 bytes) removed from the image.
 
 ==============================================================================
 
@@ -285,29 +284,29 @@ Memory Map of the image
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000284   Code   RO            3  * RESET               startup.o
-    0x00000284   0x00000000   Code   RO          143  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000284   0x00000004   Code   RO          146    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x00000288   0x00000004   Code   RO          149    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x0000028c   0x00000000   Code   RO          151    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x0000028c   0x00000000   Code   RO          153    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x0000028c   0x00000008   Code   RO          154    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00000294   0x00000000   Code   RO          156    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x00000294   0x00000000   Code   RO          158    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x00000294   0x00000004   Code   RO          147    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x00000298   0x00000024   Code   RO          160    .text               mc_w.l(init.o)
-    0x000002bc   0x00000050   Code   RO          104    i.PWM_Init          pwm.o
-    0x0000030c   0x00000068   Code   RO          105    i.PortB_Init_Send   pwm.o
+    0x00000284   0x00000000   Code   RO          140  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000284   0x00000004   Code   RO          143    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000288   0x00000004   Code   RO          146    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x0000028c   0x00000000   Code   RO          148    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x0000028c   0x00000000   Code   RO          150    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x0000028c   0x00000008   Code   RO          151    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000294   0x00000000   Code   RO          153    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000294   0x00000000   Code   RO          155    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000294   0x00000004   Code   RO          144    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x00000298   0x00000024   Code   RO          157    .text               mc_w.l(init.o)
+    0x000002bc   0x00000050   Code   RO          101    i.PWM_Init          pwm.o
+    0x0000030c   0x00000068   Code   RO          102    i.PortB_Init_Send   pwm.o
     0x00000374   0x00000018   Code   RO           12    i.UART_InChar       uart.o
     0x0000038c   0x0000004c   Code   RO           14    i.UART_InUDec       uart.o
     0x000003d8   0x00000098   Code   RO           16    i.UART_Init         uart.o
     0x00000470   0x00000018   Code   RO           17    i.UART_OutChar      uart.o
     0x00000488   0x00000018   Code   RO           18    i.UART_OutString    uart.o
-    0x000004a0   0x0000000e   Code   RO          164    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x000004ae   0x00000002   Code   RO          165    i.__scatterload_null  mc_w.l(handlers.o)
-    0x000004b0   0x0000000e   Code   RO          166    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x000004a0   0x0000000e   Code   RO          161    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x000004ae   0x00000002   Code   RO          162    i.__scatterload_null  mc_w.l(handlers.o)
+    0x000004b0   0x0000000e   Code   RO          163    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x000004be   0x00000002   PAD
     0x000004c0   0x00000040   Code   RO           82    i.main              main.o
-    0x00000500   0x00000010   Data   RO          162    Region$$Table       anon$$obj.o
+    0x00000500   0x00000010   Data   RO          159    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)

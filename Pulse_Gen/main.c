@@ -9,10 +9,6 @@
 #include "UART.h"
 #include "pwm.h"
 
-// 2. Global Declarations section
-int32_t side; // room wall meters
-int32_t area; // size squared meters
-// Function Prototypes
 
 // 3. Subroutines Section
 // MAIN: Mandatory routine for a C program to be executable
