@@ -27,6 +27,7 @@ void Delay_ms(long t){
 int main(void) {
 	int freq;
 	SYSCTL_RCGCGPIO_R |= 0x20;  // activate port F
+	while((SYSCTL_PRGPIO_R&0x20) == 0){};
   GPIO_PORTF_DIR_R |= 0x0E;   // make PF1, 2 and 3 out
   GPIO_PORTF_AFSEL_R &= ~0x0E;// disable alt funct on PF1, 2 and 3
   GPIO_PORTF_DEN_R |= 0x0E;   // enable digital I/O on PF1,2 and 3

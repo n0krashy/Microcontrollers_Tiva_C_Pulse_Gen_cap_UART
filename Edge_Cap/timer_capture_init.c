@@ -9,7 +9,7 @@ void Timer0Capture_init(void)
 {
     SYSCTL_RCGCTIMER_R |= 1;     /* enable clock to Timer Block 0 */
     SYSCTL_RCGCGPIO_R |= 2;      /* enable clock to PORTB */
-
+		while((SYSCTL_PRGPIO_R&2) == 0){};
     GPIO_PORTB_DIR_R &= ~0x40;        /* make PB6 an input pin */
     GPIO_PORTB_DEN_R |= 0x40;         /* make PB6 as digital pin */
     GPIO_PORTB_AFSEL_R |= 0x40;       /* use PB6 alternate function */

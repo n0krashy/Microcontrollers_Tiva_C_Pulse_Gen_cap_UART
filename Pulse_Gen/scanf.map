@@ -95,15 +95,15 @@ Image Symbol Table
     .text                                    0x00000298   Section       36  init.o(.text)
     i.PWM_Init                               0x000002bc   Section        0  pwm.o(i.PWM_Init)
     i.PortB_Init_Send                        0x0000030c   Section        0  pwm.o(i.PortB_Init_Send)
-    i.UART_InChar                            0x00000374   Section        0  uart.o(i.UART_InChar)
-    i.UART_InUDec                            0x0000038c   Section        0  uart.o(i.UART_InUDec)
-    i.UART_Init                              0x000003d8   Section        0  uart.o(i.UART_Init)
-    i.UART_OutChar                           0x00000470   Section        0  uart.o(i.UART_OutChar)
-    i.UART_OutString                         0x00000488   Section        0  uart.o(i.UART_OutString)
-    i.__scatterload_copy                     0x000004a0   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x000004ae   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x000004b0   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.main                                   0x000004c0   Section        0  main.o(i.main)
+    i.UART_InChar                            0x00000384   Section        0  uart.o(i.UART_InChar)
+    i.UART_InUDec                            0x0000039c   Section        0  uart.o(i.UART_InUDec)
+    i.UART_Init                              0x000003e8   Section        0  uart.o(i.UART_Init)
+    i.UART_OutChar                           0x00000480   Section        0  uart.o(i.UART_OutChar)
+    i.UART_OutString                         0x00000498   Section        0  uart.o(i.UART_OutString)
+    i.__scatterload_copy                     0x000004b0   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x000004be   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x000004c0   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.main                                   0x000004d0   Section        0  main.o(i.main)
     STACK                                    0x20000000   Section     1024  startup.o(STACK)
     StackMem                                 0x20000000   Data           0  startup.o(STACK)
 
@@ -255,18 +255,18 @@ Image Symbol Table
     __scatterload                            0x00000299   Thumb Code    28  init.o(.text)
     __scatterload_rt2                        0x00000299   Thumb Code     0  init.o(.text)
     PWM_Init                                 0x000002bd   Thumb Code    76  pwm.o(i.PWM_Init)
-    PortB_Init_Send                          0x0000030d   Thumb Code    92  pwm.o(i.PortB_Init_Send)
-    UART_InChar                              0x00000375   Thumb Code    20  uart.o(i.UART_InChar)
-    UART_InUDec                              0x0000038d   Thumb Code    76  uart.o(i.UART_InUDec)
-    UART_Init                                0x000003d9   Thumb Code   130  uart.o(i.UART_Init)
-    UART_OutChar                             0x00000471   Thumb Code    18  uart.o(i.UART_OutChar)
-    UART_OutString                           0x00000489   Thumb Code    24  uart.o(i.UART_OutString)
-    __scatterload_copy                       0x000004a1   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x000004af   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x000004b1   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    main                                     0x000004c1   Thumb Code    36  main.o(i.main)
-    Region$$Table$$Base                      0x00000500   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00000510   Number         0  anon$$obj.o(Region$$Table)
+    PortB_Init_Send                          0x0000030d   Thumb Code   104  pwm.o(i.PortB_Init_Send)
+    UART_InChar                              0x00000385   Thumb Code    20  uart.o(i.UART_InChar)
+    UART_InUDec                              0x0000039d   Thumb Code    76  uart.o(i.UART_InUDec)
+    UART_Init                                0x000003e9   Thumb Code   130  uart.o(i.UART_Init)
+    UART_OutChar                             0x00000481   Thumb Code    18  uart.o(i.UART_OutChar)
+    UART_OutString                           0x00000499   Thumb Code    24  uart.o(i.UART_OutString)
+    __scatterload_copy                       0x000004b1   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x000004bf   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x000004c1   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    main                                     0x000004d1   Thumb Code    36  main.o(i.main)
+    Region$$Table$$Base                      0x00000510   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000520   Number         0  anon$$obj.o(Region$$Table)
     __initial_sp                             0x20000400   Data           0  startup.o(STACK)
 
 
@@ -277,9 +277,9 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00000510, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00000520, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x00000510, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00000520, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -295,18 +295,18 @@ Memory Map of the image
     0x00000294   0x00000004   Code   RO          144    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x00000298   0x00000024   Code   RO          157    .text               mc_w.l(init.o)
     0x000002bc   0x00000050   Code   RO          101    i.PWM_Init          pwm.o
-    0x0000030c   0x00000068   Code   RO          102    i.PortB_Init_Send   pwm.o
-    0x00000374   0x00000018   Code   RO           12    i.UART_InChar       uart.o
-    0x0000038c   0x0000004c   Code   RO           14    i.UART_InUDec       uart.o
-    0x000003d8   0x00000098   Code   RO           16    i.UART_Init         uart.o
-    0x00000470   0x00000018   Code   RO           17    i.UART_OutChar      uart.o
-    0x00000488   0x00000018   Code   RO           18    i.UART_OutString    uart.o
-    0x000004a0   0x0000000e   Code   RO          161    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x000004ae   0x00000002   Code   RO          162    i.__scatterload_null  mc_w.l(handlers.o)
-    0x000004b0   0x0000000e   Code   RO          163    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x000004be   0x00000002   PAD
-    0x000004c0   0x00000040   Code   RO           82    i.main              main.o
-    0x00000500   0x00000010   Data   RO          159    Region$$Table       anon$$obj.o
+    0x0000030c   0x00000078   Code   RO          102    i.PortB_Init_Send   pwm.o
+    0x00000384   0x00000018   Code   RO           12    i.UART_InChar       uart.o
+    0x0000039c   0x0000004c   Code   RO           14    i.UART_InUDec       uart.o
+    0x000003e8   0x00000098   Code   RO           16    i.UART_Init         uart.o
+    0x00000480   0x00000018   Code   RO           17    i.UART_OutChar      uart.o
+    0x00000498   0x00000018   Code   RO           18    i.UART_OutString    uart.o
+    0x000004b0   0x0000000e   Code   RO          161    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x000004be   0x00000002   Code   RO          162    i.__scatterload_null  mc_w.l(handlers.o)
+    0x000004c0   0x0000000e   Code   RO          163    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x000004ce   0x00000002   PAD
+    0x000004d0   0x00000040   Code   RO           82    i.main              main.o
+    0x00000510   0x00000010   Data   RO          159    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
@@ -329,12 +329,12 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
         64         28          0          0          0        451   main.o
-       184         16          0          0          0        833   pwm.o
+       200         20          0          0          0        845   pwm.o
        644        620          0          0       1024        720   startup.o
        300         32          0          0          0       6448   uart.o
 
     ----------------------------------------------------------------------
-      1192        696         16          0       1024       8452   Object Totals
+      1208        700         16          0       1024       8464   Object Totals
          0          0         16          0          0          0   (incl. Generated)
          0          0          0          0          0          0   (incl. Padding)
 
@@ -373,15 +373,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1280        712         16          0       1024       8260   Grand Totals
-      1280        712         16          0       1024       8260   ELF Image Totals
-      1280        712         16          0          0          0   ROM Totals
+      1296        716         16          0       1024       8272   Grand Totals
+      1296        716         16          0       1024       8272   ELF Image Totals
+      1296        716         16          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 1296 (   1.27kB)
+    Total RO  Size (Code + RO Data)                 1312 (   1.28kB)
     Total RW  Size (RW Data + ZI Data)              1024 (   1.00kB)
-    Total ROM Size (Code + RO Data + RW Data)       1296 (   1.27kB)
+    Total ROM Size (Code + RO Data + RW Data)       1312 (   1.28kB)
 
 ==============================================================================
 
